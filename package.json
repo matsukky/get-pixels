@@ -3,7 +3,6 @@
   "version": "3.3.4",
   "description": "Reads the pixels of an image as an ndarray",
   "main": "node-pixels.js",
-  "type": "module",
   "directories": {
     "test": "test"
   },
