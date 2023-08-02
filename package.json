@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "data-uri-to-buffer": "0.0.3",
-    "got": "^13.0.0",
+    "got-cjs": "^12.5.4",
     "jpeg-js": "^0.4.4",
     "mime-types": "^2.1.35",
     "ndarray": "^1.0.19",
