@@ -1,14 +1,13 @@
 'use strict'
 
 var ndarray = require('ndarray')
-var path = require('path')
 var PNG = require('pngjs').PNG
 var jpeg = require('jpeg-js')
 var pack = require('ndarray-pack')
 var GifReader = require('omggif').GifReader
 var Bitmap = require('node-bitmap')
 var fs = require('fs')
-var request = require('got')
+var request = await import('got')
 var mime = require('mime-types')
 var parseDataURI = require('parse-data-uri')
 
