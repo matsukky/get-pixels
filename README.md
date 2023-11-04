@@ -1,12 +1,13 @@
 get-pixels
 ==========
-This fork [get-pixels](https://github.com/scijs/get-pixels) update and replace ``request`` due of the end of support of it. Written in 100% JavaScript, works ONLY in node.js and has no external native dependencies.
+This fork of [get-pixels](https://github.com/scijs/get-pixels) update and replace the ``request`` module, due of the end of support of it. 
+# ⚠️ Works ONLY in node.js
 
 Currently the following file formats are supported:
 
 * `PNG`
 * `JPEG`
-* `GIF`
+* `GIF` (partially supported)
 
 Example
 =======
