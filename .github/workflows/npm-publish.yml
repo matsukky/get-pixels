@@ -3,8 +3,7 @@ name: Node.js Package
 on:
   push:
     branches:
-    - main
-    - release/*
+    - mmaster
 
 jobs:
   build:
