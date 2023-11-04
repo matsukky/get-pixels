@@ -124,7 +124,7 @@ describe("get-pixels", () => {
     });
   });
 
-  /* test("get-url gif img", (done) => {
+  test("get-url gif img", (done) => {
     const url = "https://raw.githubusercontent.com/matsukky/get-pixels/master/test/test_pattern.gif";
     getPixels(url, (err, pixels) => {
       if (err) {
@@ -135,5 +135,5 @@ describe("get-pixels", () => {
       testImage(pixels.pick(0));
       done();
     });
-  }); */
+  });
 });

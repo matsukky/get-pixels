@@ -7,7 +7,7 @@ Currently the following file formats are supported:
 
 * `PNG`
 * `JPEG`
-* `GIF` (partially supported)
+* `GIF`
 
 Example
 =======
@@ -23,8 +23,3 @@ getPixels("lena.png", function(err, pixels) {
   console.log("got pixels", pixels.shape.slice())
 })
 ```
-
-Install
-=======
-
-    npm install @matsukky/get-pixels

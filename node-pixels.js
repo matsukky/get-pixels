@@ -52,6 +52,7 @@ function handleGIF(data, cb) {
   var reader
   try {
     reader = new GifReader(data)
+    //console.log(reader)
   } catch(err) {
     cb(err)
     return
@@ -161,7 +162,7 @@ module.exports = function getPixels(url, type, cb) {
   } else if (url.startsWith("http://") || url.startsWith("https://")) {
     let contentType;
     fetch(url)
-      .then((response) => {
+      .then(async (response) => {
         if (!response.ok) {
           throw new Error("HTTP request failed");
         }
@@ -171,10 +172,10 @@ module.exports = function getPixels(url, type, cb) {
           throw new Error("Invalid content-type");
         }
 
-        return response.arrayBuffer()
+        return await response.arrayBuffer()
       })
       .then((body) => {
-        doParse(contentType, body, cb);
+        doParse(contentType, new Uint8Array(body), cb);
       })
       .catch((err) => {
         cb(err);

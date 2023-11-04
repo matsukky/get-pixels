@@ -17,3 +17,4 @@ node_modules/*
 .DS_Store
 test.js
 .nyc_output
+.vscode
