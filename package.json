@@ -1,6 +1,6 @@
 {
   "name": "@matsukky/get-pixels",
-  "version": "3.3.6",
+  "version": "3.3.7",
   "description": "Reads the pixels of an image as an ndarray",
   "main": "node-pixels.js",
   "directories": {
@@ -17,7 +17,8 @@
     "node-fetch": "2.7.0",
     "omggif": "^1.0.10",
     "parse-data-uri": "^0.2.0",
-    "pngjs": "^7.0.0"
+    "pngjs": "^7.0.0",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "jest": "^29.7.0"

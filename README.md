@@ -8,6 +8,7 @@ Currently the following file formats are supported:
 * `PNG`
 * `JPEG`
 * `GIF`
+* `WEBP`
 
 Example
 =======

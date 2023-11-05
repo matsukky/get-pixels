@@ -7,6 +7,7 @@ var jpeg = require("jpeg-js");
 var pack = require("ndarray-pack");
 var GifReader = require("omggif").GifReader;
 var Bitmap = require("node-bitmap");
+var sharp = require('sharp');
 var fs = require("fs");
 var mime = require("mime-types");
 var parseDataURI = require("parse-data-uri");
@@ -52,7 +53,6 @@ function handleGIF(data, cb) {
   var reader
   try {
     reader = new GifReader(data)
-    //console.log(reader)
   } catch(err) {
     cb(err)
     return
@@ -107,7 +107,24 @@ function handleBMP(data, cb) {
   cb(null, result.transpose(1, 0));
 }
 
+function handleWebP(data, cb) {
+  sharp(data)
+    .ensureAlpha() // Assure une couche alpha (canal de transparence)
+    .raw()
+    .toBuffer({ resolveWithObject: true })
+    .then(({ data, info }) => {
+      const nshape = [info.height, info.width, 4];
+      const ndata = new Uint8Array(data);
+      const result = ndarray(ndata, nshape);
+      cb(null, result.transpose(1, 0));
+    })
+    .catch((err) => {
+      cb(err);
+    });
+}
+
 function doParse(mimeType, data, cb) {
+  console.log(mimeType)
   switch (mimeType) {
     case "image/png":
       handlePNG(data, cb);
@@ -125,6 +142,10 @@ function doParse(mimeType, data, cb) {
     case "image/bmp":
       handleBMP(data, cb);
       break;
+    
+    case "image/webp":
+      handleWebP(data, cb);
+      break;
 
     default:
       cb(new Error("Unsupported file type: " + mimeType));
@@ -132,6 +153,7 @@ function doParse(mimeType, data, cb) {
 }
 
 module.exports = function getPixels(url, type, cb) {
+  console.log(type, cb)
   if (!cb) {
     cb = type;
     type = "";
