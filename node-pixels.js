@@ -124,7 +124,6 @@ function handleWebP(data, cb) {
 }
 
 function doParse(mimeType, data, cb) {
-  console.log(mimeType)
   switch (mimeType) {
     case "image/png":
       handlePNG(data, cb);
@@ -153,7 +152,6 @@ function doParse(mimeType, data, cb) {
 }
 
 module.exports = function getPixels(url, type, cb) {
-  console.log(type, cb)
   if (!cb) {
     cb = type;
     type = "";
